@@ -1,16 +1,69 @@
-import React from "react";
-import NewPlantForm from "./NewPlantForm";
-import PlantList from "./PlantList";
+import React, { useState, useEffect } from "react";
+import PlantCard from "./PlantCard";
 import Search from "./Search";
+import AddPlantForm from "./AddPlantForm";
 
-function PlantPage() {
+function PlantList() {
+  const [plants, setPlants] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const fetchPlants = async () => {
+      try {
+        const response = await fetch("http://localhost:6001/plants");
+        const data = await response.json();
+        setPlants(data); // Store fetched plants
+      } catch (error) {
+        console.error("Error fetching plants:", error);
+      }
+    };
+
+    fetchPlants();
+  }, []);
+
+  const handleSearch = (query) => {
+    setSearchQuery(query); // Update the search query state
+  };
+
+  // Filter plants based on the search query
+  const filteredPlants = plants.filter((plant) =>
+    plant.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const handleAddPlant = (newPlant) => {
+    setPlants((prevPlants) => [...prevPlants, newPlant]);
+  };
+
+  const handleUpdatePrice = (updatedPlant) => {
+    setPlants((prevPlants) =>
+      prevPlants.map((plant) =>
+        plant.id === updatedPlant.id ? updatedPlant : plant
+      )
+    );
+  };
+
+  const handleDeletePlant = (plantId) => {
+    setPlants((prevPlants) =>
+      prevPlants.filter((plant) => plant.id !== plantId)
+    );
+  };
+
   return (
-    <main>
-      <NewPlantForm />
-      <Search />
-      <PlantList />
-    </main>
+    <div>
+      <AddPlantForm onAddPlant={handleAddPlant} />
+      <Search query={searchQuery} onSearch={handleSearch} />
+      <ul className="cards">
+        {filteredPlants.map((plant) => (
+          <PlantCard
+            key={plant.id}
+            plant={plant}
+            onUpdatePrice={handleUpdatePrice}
+            onDeletePlant={handleDeletePlant}
+          />
+        ))}
+      </ul>
+    </div>
   );
 }
 
-export default PlantPage;
+export default PlantList;

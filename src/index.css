@@ -134,4 +134,79 @@ input:focus {
   .card {
     width: calc(20% - 2rem);
   }
+  
+/* Add styling for the AddPlantForm */
+.add-plant-form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto; /* Center the form horizontally */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.add-plant-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.add-plant-form label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.add-plant-form input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+}
+
+.add-plant-form input[type="number"] {
+  -moz-appearance: textfield; /* Hide spinner arrows in number input */
+}
+
+.add-plant-form input:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.add-plant-form button {
+  width: 100%;
+  padding: 14px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-plant-form button:hover {
+  background-color: #45a049;
+}
+
+.add-plant-form button:active {
+  background-color: #388e3c;
+}
+
+.add-plant-form .error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 8px;
+}
+
+
 }
