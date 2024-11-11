@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PlantCard from "./PlantCard";
 import Search from "./Search";
-import AddPlantForm from "./AddPlantForm";
+import NewPlantForm from "./NewPlantForm";
 
 function PlantList() {
   const [plants, setPlants] = useState([]);
@@ -50,8 +50,8 @@ function PlantList() {
 
   return (
     <div>
+      < NewPlantForm onAddPlant={handleAddPlant} /> 
       <Search query={searchQuery} onSearch={handleSearch} />
-      <AddPlantForm onAddPlant={handleAddPlant} />
       <ul className="cards">
         {filteredPlants.map((plant) => (
           <PlantCard
