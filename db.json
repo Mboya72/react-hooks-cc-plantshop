@@ -47,6 +47,12 @@
       "image": "https://hips.hearstapps.com/hmg-prod/images/vibrant-green-potted-plant-blooms-inside-bringing-a-royalty-free-image-1727983902.jpg?crop=0.44444xw:1xh;center,top&resize=980:*",
       "price": 10,
       "id": 8
+    },
+    {
+      "name": "Elvis ",
+      "image": "http://localhost:3001/images/zz-plant.jpg",
+      "price": "90",
+      "id": 9
     }
   ]
 }

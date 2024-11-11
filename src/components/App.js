@@ -1,4 +1,4 @@
-import react from "react";
+import {useEffect,useState} from "react";
 import Header from "./Header";
 import PlantList from "./PlantList";
 
