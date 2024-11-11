@@ -29,14 +29,14 @@ function NewPlantForm() {
       });
 
       if (response.ok) {
-        alert("Plant added successfully!");
+        // alert("Plant added successfully!");
         setFormData({ name: "", image: "", price: "" }); 
       } else {
            alert("Failed to add plant.");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred. Please try again.");
+      // alert("An error occurred. Please try again.");
     }
   };
 
