@@ -1,4 +1,5 @@
 # Phase 2 Code Challenge: Plantsy
+Deployed link:https://react-hooks-cc-plantshop-tau-eight.vercel.app/
 
 ## Demo
 
